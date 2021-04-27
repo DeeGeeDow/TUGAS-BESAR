@@ -96,6 +96,4 @@ def convertArray(array):
             arr[i] = int(arr[i])
     return(arr)
 
-x = int(input())
-if x == 1:
-    cari_tahun()
+
