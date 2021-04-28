@@ -1,3 +1,4 @@
 id;nama;username;password;alamat;role
 1;Admin;admin;12345;Di Hatimu;admin
-2;Young Lex;sadiku;12345;Jl. Jalan;user
+2;Young Lex;sadiku;12345;Jl.Jalan;user
+3;Nyan cat;admin2;123456;Kulkas;admin

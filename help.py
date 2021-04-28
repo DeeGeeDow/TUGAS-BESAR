@@ -16,16 +16,16 @@ F15 = "save - untuk melakukan penyimpanan perubahan data ke dalam file"
 F16 = "help - untuk memberikan panduan penggunaan sistem"
 F17 = "exit - untuk keluar dari sistem/aplikasi"
 
-def help():
+
+def help_admin():
     # Sebagai admin
-    if (role == "admin"):
-        print("============ HELP ============")
-        print(F01,F02,F03,F04,F05,F06,F07,F11,F12,F13,F15,F16,F17, sep="\n")
+    print("============ HELP ============")
+    print(F01,F02,F03,F04,F05,F06,F07,F11,F12,F13,F15,F16,F17, sep="\n")
+    print()
+
+def help_user():
     # Sebagai user
-    elif (role == "user"):
-        print("============ HELP ============")
-        print(F02,F03,F04,F08,F09,F10,F15,F16,F17, sep="\n")
-    # Karena prosedur tidak melakukan login dahulu, maka untuk selain admin dan user
-    else:
-        print("============ HELP ============")
-        print(F02,F17, sep="\n")
+    print("============ HELP ============")
+    print(F02,F03,F04,F08,F09,F10,F15,F16,F17, sep="\n")
+    print()
+
