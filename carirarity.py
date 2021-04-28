@@ -31,5 +31,5 @@ def search_rar():
             print("Rarity          :", data[i][4])
             print("Tahun Ditemukan :", data[i][5])
     if state:
-        print("Tidak ditemukan gadget dengan rarity", req)
+        print("\nTidak ditemukan gadget dengan rarity", req)
 
