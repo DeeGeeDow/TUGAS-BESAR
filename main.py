@@ -9,9 +9,9 @@ while True:
     command = input(">>> ")
     if command == "register" and role == "admin":
         register()
-    if command == "caritahun" and role == "admin" or role == "user":
+    elif command == "caritahun" and (role == "admin" or role == "user"):
         cari_tahun()
-    if command == "carirarity" and role == "admin" or role == "user":
+    elif command == "carirarity" and (role == "admin" or role == "user"):
         search_rar()
     else:
         print("Invalid Command")
