@@ -3,7 +3,6 @@ def cari_tahun():
     gadget = f.readlines()
     f.close()
 
-    print(">>> CARI TAHUN <<<")
     print()
     tahun = int(input("Masukkan tahun: "))
     kategori = input("Masukkan kategori: ")
