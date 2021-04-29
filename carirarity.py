@@ -1,3 +1,5 @@
+from ubahdata import split
+
 def carirarity():
     f = open("gadget.csv", "r")
     lines = f.readlines()
@@ -5,7 +7,7 @@ def carirarity():
     
     req = input("Masukkan rarity: ")
     
-    data_gadget = data_split(lines)
+    data_gadget = split(lines)
 
     state = True
     print("\nHasil pencarian: ")
@@ -19,20 +21,3 @@ def carirarity():
             print("Tahun Ditemukan :", data_gadget[i][5])
     if state:
         print("\nTidak ditemukan gadget dengan rarity", req)
-
-def data_split(line):
-    data = []
-    for i in range(1, len(line)):
-        new_arr = []
-        cc = ''
-        for j in (line[i]):
-            if (j == ";"):
-                new_arr.append(cc)
-                cc = ''
-            else:
-                cc += j
-        if cc:
-            new_arr.append(cc)
-        arr_data = [data.strip() for data in new_arr]
-        data.append(arr_data)
-    return data
