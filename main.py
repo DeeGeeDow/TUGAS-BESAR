@@ -2,6 +2,7 @@ from register import register
 from login import login
 from cari_tahun import cari_tahun
 from carirarity import search_rar
+from ubahjumlah import ubahjumlah
 from help import help_admin
 from help import help_user
 
@@ -16,6 +17,8 @@ while True:
         cari_tahun()
     elif command == "carirarity":
         search_rar()
+    elif command == "ubahjumlah" and role == "admin":
+        ubahjumlah()
     elif command == "help" and role == "admin":
         help_admin()
     elif command == "help" and role == "user":
