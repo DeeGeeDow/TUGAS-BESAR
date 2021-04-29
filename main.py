@@ -1,6 +1,6 @@
 from register import register
 from login import login
-from cari_tahun import cari_tahun
+from cari_tahun import caritahun
 from carirarity import carirarity
 from ubahjumlah import ubahjumlah
 from help import help_admin
@@ -14,7 +14,7 @@ while True:
     if command == "register" and role == "admin":
         register()
     elif command == "caritahun":
-        cari_tahun()
+        caritahun()
     elif command == "carirarity":
         carirarity()
     elif command == "ubahjumlah" and role == "admin":
