@@ -24,14 +24,7 @@ def hapusitem():
                 exist = True
             
         if (exist == True):
-            ans = input("Apakah anda yakin ingin menghapus " + str(data_gadget[index][1]) + "(Y/N)? ")
-            if (ans == 'Y') or (ans == 'y'):
-                data_gadget.pop(index)
-                print("\nItem telah berhasil dihapus dari database.")
-            elif (ans == 'N') or (ans == 'n'):
-                print("\nItem gagal dihapus dari database")
-            else: #Jika diberi input selain Y dan N
-                print("Input invalid")
+            checkhapus(data_gadget, index)
 
     elif (id[0] == 'C'):
         for i in range(len(data_consumable)):
@@ -40,14 +33,7 @@ def hapusitem():
                 exist = True
             
         if (exist == True):
-            ans = input("Apakah anda yakin ingin menghapus " + str(data_consumable[index][1]) + "(Y/N)? ")
-            if (ans == 'Y') or (ans == 'y'):
-                data_consumable.pop(index)
-                print("\nItem telah berhasil dihapus dari database.")
-            elif (ans == 'N') or (ans == 'n'):
-                print("\nItem gagal dihapus dari database")
-            else: #Jika diberi input selain Y dan N
-                print("Input invalid")
+            checkhapus(data_consumable, index)
     else:
         print("Tidak ada item dengan ID tersebut.")
     
@@ -58,4 +44,13 @@ def hapusitem():
     consumable = open("consumable.csv", "w")
     consumable.write("id;nama;deskripsi;jumlah;rarity\n")
     savenewdata(data_consumable,consumable)
-
+ 
+def checkhapus(data, index):
+    ans = input("Apakah anda yakin ingin menghapus " + str(data[index][1]) + "(Y/N)? ")
+    if (ans == 'Y') or (ans == 'y'):
+        data.pop(index)
+        print("\nItem telah berhasil dihapus dari database.")
+    elif (ans == 'N') or (ans == 'n'):
+        print("\nItem gagal dihapus dari database")
+    else: #Jika diberi input selain Y dan N
+        print("Input invalid")
