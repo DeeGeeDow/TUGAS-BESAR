@@ -22,10 +22,10 @@ def carirarity():
 
 def data_split(line):
     data = []
-    for i in range(1, len(lines)):
+    for i in range(1, len(line)):
         new_arr = []
         cc = ''
-        for j in (lines[i]):
+        for j in (line[i]):
             if (j == ";"):
                 new_arr.append(cc)
                 cc = ''

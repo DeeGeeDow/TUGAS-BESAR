@@ -10,7 +10,7 @@ from help import help_user
 login()
 role = login.role
 while True:
-    print("Ketik help untuk melihat semua perintah")
+    print("Ketik 'help' untuk melihat semua perintah")
     command = input(">>> ")
     if command == "register" and role == "admin":
         register()
