@@ -1,3 +1,5 @@
+from carirarity import outputGadget
+
 def caritahun():
     f =  open("gadget.csv", "r")
     gadget = f.readlines()
@@ -38,50 +40,30 @@ def caritahun():
     if (tahun > 999) & (kategori in data_kategori):
         if (kategori == '='):
             ind = data_tahun.index(tahun)
-            print("Nama: ",data[ind][1])
-            print("Deskripsi: ",data[ind][2])
-            print("Jumlah: ",data[ind][3])
-            print("Rarity: ",data[ind][4])
-            print("Tahun Ditemukan: ",data[ind][5])
+            outputGadget(data,ind)
         elif (kategori == '<'):
             for item in data_tahun:
                 if item < tahun:
                     ind = data_tahun.index(item)
-                    print("Nama: ",data[ind][1])
-                    print("Deskripsi: ",data[ind][2])
-                    print("Jumlah: ",data[ind][3])
-                    print("Rarity: ",data[ind][4])
-                    print("Tahun Ditemukan: ",data[ind][5])
+                    outputGadget(data,ind)
                     print()
         elif (kategori == '>'):
             for item in data_tahun:
                 if item > tahun:
                     ind = data_tahun.index(item)
-                    print("Nama: ",data[ind][1])
-                    print("Deskripsi: ",data[ind][2])
-                    print("Jumlah: ",data[ind][3])
-                    print("Rarity: ",data[ind][4])
-                    print("Tahun Ditemukan: ",data[ind][5])
+                    outputGadget(data,ind)
                     print()
         elif (kategori == '<='):
             for item in data_tahun:
                 if item <= tahun:
                     ind = data_tahun.index(item)
-                    print("Nama: ",data[ind][1])
-                    print("Deskripsi: ",data[ind][2])
-                    print("Jumlah: ",data[ind][3])
-                    print("Rarity: ",data[ind][4])
-                    print("Tahun Ditemukan: ",data[ind][5])
+                    outputGadget(data,ind)
                     print()
         elif (kategori == '>='):
             for item in data_tahun:
                 if item >= tahun:
                     ind = data_tahun.index(item)
-                    print("Nama: ",data[ind][1])
-                    print("Deskripsi: ",data[ind][2])
-                    print("Jumlah: ",data[ind][3])
-                    print("Rarity: ",data[ind][4])
-                    print("Tahun Ditemukan: ",data[ind][5])
+                    outputGadget(data,ind)
                     print()
     else:
         print("Tidak ada gadget yang ditemukan")
@@ -94,4 +76,3 @@ def convertArray(array):
         if(i == 5):
             arr[i] = int(arr[i])
     return(arr)
-
