@@ -39,7 +39,7 @@ def login():
 
         data_username.append(split_value[2])
         data_password.append(split_value[3])
-        data_role.append(split_value[-1])
+        data_role.append(split_value[-1].replace('\n',''))
 
     username = input("Masukkan username : ")
 
