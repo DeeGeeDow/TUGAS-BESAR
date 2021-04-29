@@ -1,3 +1,6 @@
+from ubahdata import split
+from ubahdata import savenewdata
+
 # Program ubahjumlah.py
 # menambah atau mengurangi gadget/consumable yang terdaftar
 
@@ -19,39 +22,11 @@ def ubahjumlah():
     c = consumable.readlines()
     consumable.close()
 
-    data_gadget = []
-    for i in range(1, len(g)):
-        new_arr = []
-        cc = ''
-        for j in (g[i]):
-            if (j == ";"):
-                new_arr.append(cc)
-                cc = ''
-            else:
-                cc += j
-        if cc:
-            new_arr.append(cc)
-        arr_data = [data.strip() for data in new_arr]
-        data_gadget.append(arr_data)
-
+    data_gadget = split(g)
     for data in data_gadget:
         data[3] = int(data[3])
 
-    data_consumable = []
-    for i in range(1, len(c)):
-        new_arr = []
-        cc = ''
-        for j in (c[i]):
-            if (j == ";"):
-                new_arr.append(cc)
-                cc = ''
-            else:
-                cc += j
-        if cc:
-            new_arr.append(cc)
-        arr_data = [data.strip() for data in new_arr]
-        data_consumable.append(arr_data)
-
+    data_consumable = split(c)
     for data in data_consumable:
         data[3] = int(data[3])
 
@@ -98,20 +73,8 @@ def ubahjumlah():
 
     g = open("gadget.csv",'w')
     g.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
-    for data in data_gadget:
-        for i in range(len(data)):
-            g.write(str(data[i]))
-            if i!=len(data)-1:
-                g.write(";")
-            else:
-                g.write("\n")
-
+    savenewdata(data_gadget,g)
+    
     c = open("consumable.csv",'w')
     c.write("id;nama;deskripsi;jumlah;rarity\n")
-    for data in data_consumable:
-        for i in range(len(data)):
-            c.write(str(data[i]))
-            if i!=len(data)-1:
-                c.write(";")
-            else:
-                c.write("\n")
+    savenewdata(data_consumable,c)
