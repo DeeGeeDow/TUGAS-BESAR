@@ -18,7 +18,7 @@ def carirarity():
     if state:
         print("\nTidak ditemukan gadget dengan rarity", req)
 
-def output(data, index):
+def outputGadget(data, index):
     print("\nNama            :", data[index][1])
     print("Deskripsi       :", data[index][2])
     print("Jumlah          :", data[index][3])
