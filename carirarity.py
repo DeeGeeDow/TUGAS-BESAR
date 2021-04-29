@@ -4,7 +4,23 @@ def carirarity():
     f.close()
     
     req = input("Masukkan rarity: ")
+    
+    data_gadget = data_split(lines)
 
+    state = True
+    print("\nHasil pencarian: ")
+    for i in range (len(data_gadget)):
+        if (data_gadget[i][4] == req):
+            state = False
+            print("\nNama            :", data_gadget[i][1])
+            print("Deskripsi       :", data_gadget[i][2])
+            print("Jumlah          :", data_gadget[i][3])
+            print("Rarity          :", data_gadget[i][4])
+            print("Tahun Ditemukan :", data_gadget[i][5])
+    if state:
+        print("\nTidak ditemukan gadget dengan rarity", req)
+
+def data_split(line):
     data = []
     for i in range(1, len(lines)):
         new_arr = []
@@ -19,17 +35,4 @@ def carirarity():
             new_arr.append(cc)
         arr_data = [data.strip() for data in new_arr]
         data.append(arr_data)
-
-    state = True
-    print("\nHasil pencarian: ")
-    for i in range (len(data)):
-        if (data[i][4] == req):
-            state = False
-            print("\nNama            :", data[i][1])
-            print("Deskripsi       :", data[i][2])
-            print("Jumlah          :", data[i][3])
-            print("Rarity          :", data[i][4])
-            print("Tahun Ditemukan :", data[i][5])
-    if state:
-        print("\nTidak ditemukan gadget dengan rarity", req)
-
+    return data
