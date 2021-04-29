@@ -14,7 +14,7 @@ def carirarity():
     for i in range (len(data_gadget)):
         if (data_gadget[i][4] == req):
             state = False
-            output(data_gadget, i)
+            outputGadget(data_gadget, i)
     if state:
         print("\nTidak ditemukan gadget dengan rarity", req)
 
