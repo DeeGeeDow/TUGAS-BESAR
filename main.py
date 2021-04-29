@@ -3,6 +3,7 @@ from login import login
 from cari_tahun import caritahun
 from carirarity import carirarity
 from ubahjumlah import ubahjumlah
+from hapusitem import hapusitem
 from help import help_admin
 from help import help_user
 
@@ -19,10 +20,13 @@ while True:
         carirarity()
     elif command == "ubahjumlah" and role == "admin":
         ubahjumlah()
-    elif command == "help" and role == "admin":
-        help_admin()
-    elif command == "help" and role == "user":
-        help_user()
+    elif command == "hapusitem" and role == "admin":
+        hapusitem()
+    elif command == "help":
+        if role == "admin":
+            help_admin()
+        elif role == "user":
+            help_user()
     elif command == "quit":
         print("Terima kasih")
         break

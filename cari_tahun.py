@@ -1,5 +1,3 @@
-import carirarity
-
 def caritahun():
     f =  open("gadget.csv", "r")
     gadget = f.readlines()
@@ -17,9 +15,24 @@ def caritahun():
     lines = [raw_line.replace("\n", "") for raw_line in old_lines]
 
     # Mengkonversi baris pada list menjadi array
-    data = carirarity.split(lines)
+    data = []
+    data_tahun = []
     data_kategori = ['<', '>', '>=', '<=', '=']
-    data_tahun = data[5]
+    for i in range(1, len(lines)):
+        new_file = []
+        kata = ''
+        for j in (lines[i]):
+            if (j == ";"):
+                new_file.append(kata)
+                kata = ''
+            else:
+                kata += j
+        if kata:
+            new_file.append(kata)
+        array = [data.strip() for data in new_file]
+        hasil = convertArray(array)
+        data.append(hasil)
+        data_tahun.append(hasil[5])
 
     # Memvalidasi input
     if (tahun > 999) & (kategori in data_kategori):
@@ -81,3 +94,4 @@ def convertArray(array):
         if(i == 5):
             arr[i] = int(arr[i])
     return(arr)
+
