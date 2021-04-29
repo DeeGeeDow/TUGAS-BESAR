@@ -1,4 +1,4 @@
-def cari_tahun():
+def caritahun():
     f =  open("gadget.csv", "r")
     gadget = f.readlines()
     f.close()
