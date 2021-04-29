@@ -1,4 +1,4 @@
-def search_rar():
+def carirarity():
     f = open("gadget.csv", "r")
     lines = f.readlines()
     f.close()
