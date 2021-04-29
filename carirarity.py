@@ -1,8 +1,8 @@
-f = open("gadget.csv", "r")
-lines = f.readlines()
-f.close()
-
 def search_rar():
+    f = open("gadget.csv", "r")
+    lines = f.readlines()
+    f.close()
+    
     req = input("Masukkan rarity: ")
 
     data = []
