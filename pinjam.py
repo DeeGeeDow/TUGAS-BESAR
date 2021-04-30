@@ -50,11 +50,8 @@ def pinjam():
             stok_user = jumlah
 
             # Data untuk merekam peminjaman barang ke gadget_borrow_history.csv
-            global pinjam_history
-            pinjam_history = [len(data_gadget_borrow_history),active_user, id, tanggal, jumlah, stok_user]
-
             b = open("gadget_borrow_history.csv",'a+')
-            b.write(f"\n{len(data_gadget_borrow_history)};{active_user};{id};{tanggal};{jumlah};{stok_user}")
+            b.write(f"\n{len(data_gadget_borrow_history)+1};{active_user};{id};{tanggal};{jumlah};{stok_user}")
             b.close()
 
             g = open("gadget.csv",'w')
