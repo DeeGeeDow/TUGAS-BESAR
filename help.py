@@ -21,13 +21,13 @@ F17 = "exit - untuk keluar dari sistem/aplikasi"
 def help_admin():
     # Sebagai admin
     print("============ HELP ============")
-    print(F01,F02,F03,F04,F05,F06,F07,F11,F12,F13,F15,F16,F17, sep="\n")
+    print(F01,F02,F03,F04,F05,F06,F07,F11,F12,F13,F14,F15,F16,F17, sep="\n")
     print()
 
 def help_user():
     # Sebagai user
     print("============ HELP ============")
-    print(F02,F03,F04,F08,F09,F10,F15,F16,F17, sep="\n")
+    print(F02,F03,F04,F08,F09,F10,F14,F15,F16,F17, sep="\n")
     print()
 
 def help_general():
