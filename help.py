@@ -11,6 +11,7 @@ F09 = "kembalikan - untuk melakukan pengembalian gadget yang dipinjam secara seu
 F10 = "minta - untuk melakukan pengambilan consumable yang tersedia"
 F11 = "riwayatpinjam - untuk memperlihatkan riwayat peminjaman gadget"
 F12 = "riwayatkembali - untuk memperlihatkan riwayat pengembalian gadget"
+F14 = "loaddata - untuk melakukan loading data ke dalam sistem"
 F13 = "riwayatambil - untuk memperlihatkan riwayat pengambilan consumable"
 F15 = "save - untuk melakukan penyimpanan perubahan data ke dalam file"
 F16 = "help - untuk memberikan panduan penggunaan sistem"
@@ -29,3 +30,8 @@ def help_user():
     print(F02,F03,F04,F08,F09,F10,F15,F16,F17, sep="\n")
     print()
 
+def help_general():
+    # Pengguna menggunakan help tanpa login
+    print("============ HELP ============")
+    print(F02,F14,F17, sep="\n")
+    print()
