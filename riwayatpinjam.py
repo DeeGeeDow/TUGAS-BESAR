@@ -3,9 +3,51 @@ def riwayatpinjam():
     lines = f.readlines()
     f.close()
 
+    f =  open("gadget.csv", "r")
+    gadget = f.readlines()
+    f.close()
+
+    f =  open("user.csv", "r")
+    user = f.readlines()
+    f.close()
+
+    id_user = []
+    nama = []
+    for i in range(1, len(user)):
+        new_file = []
+        kata = ''
+        for j in (user[i]):
+            if (j == ";"):
+                new_file.append(kata)
+                kata = ''
+            else:
+                kata += j
+        if kata:
+            new_file.append(kata)
+        array = [data.strip() for data in new_file]
+        nama.append(array[1])
+        id_user.append(array[0])
+
+    id_gadget = []
+    nama_gadget = []
+    for i in range(1, len(gadget)):
+        new_file = []
+        kata = ''
+        for j in (gadget[i]):
+            if (j == ";"):
+                new_file.append(kata)
+                kata = ''
+            else:
+                kata += j
+        if kata:
+            new_file.append(kata)
+        array = [data.strip() for data in new_file]
+        nama_gadget.append(array[1])
+        id_gadget.append(array[0])
+
+    
     data = []
     tanggal = []
-
     for i in range(1, len(lines)):
         new_file = []
         kata = ''
@@ -32,8 +74,8 @@ def riwayatpinjam():
     for item in entry:
         ind = tanggal_lama.index(item)
         print("ID Peminjaman        :", data[ind][0])
-        print("Nama Pengambil       :", data[ind][1])
-        print("Nama Gadget          :", data[ind][2])
+        print("Nama Pengambil       :", nama[id_user.index(data[ind][1])])
+        print("Nama Gadget          :", nama_gadget[id_gadget.index(data[ind][2])])
         print("Tanggal Peminjaman   :", data[ind][3])
         print("Jumlah               :", data[ind][4])
         print()
@@ -45,8 +87,8 @@ def riwayatpinjam():
         for item in entry:
             ind = tanggal_lama.index(item)
             print("ID Peminjaman        :", data[ind][0])
-            print("Nama Pengambil       :", data[ind][1])
-            print("Nama Gadget          :", data[ind][2])
+            print("Nama Pengambil       :", nama[id_user.index(data[ind][1])])
+            print("Nama Gadget          :", nama_gadget[id_gadget.index(data[ind][2])])
             print("Tanggal Peminjaman   :", data[ind][3])
             print("Jumlah               :", data[ind][4])
             print()
