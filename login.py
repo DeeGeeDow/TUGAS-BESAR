@@ -1,4 +1,4 @@
-import printdoraemon as pd
+from load import load
 
 # PROGRAM login.py
 # program untuk login ke Kantong Ajaib
@@ -17,54 +17,28 @@ def login():
 # username, password : string
 
 # ALGORITMA PROSEDUR
-    f = open("user.csv","r")
-    user = f.readlines()
-    f.close()
-
-    data_username = []
-    data_password = []
-    data_role = []
-    login.role = ""
-    
-    # csv parser
-    for i in range(1,len(user)):
-        split_value = []
-        tmp = ''
-        for c in user[i]:
-            if c == ";":
-                split_value.append(tmp)
-                tmp = ''
-            else:
-                tmp += c
-        if tmp:
-            split_value.append(tmp)
-
-        data_username.append(split_value[2])
-        data_password.append(split_value[3])
-        data_role.append(split_value[-1].replace('\n',''))
-
     username = input("Masukkan username : ")
 
-    while username_id(username,data_username) == 0:
+    while username_id(username) == 0:
         print("Username tidak terdaftar")
         username = input("Masukkan username : ")
         
     password = input("Masukkan password : ")
-    if password != data_password[username_id(username, data_username) - 1]:
+    if password != load.data_user[username_id(username) - 1][3]:
         print("Password salah!")
         login()
     else:
-        login.role = data_role[username_id(username, data_username) - 1]
+        login.role = load.data_user[username_id(username) - 1][-1]
         print(f"Halo {username}! Selamat datang di Kantong Ajaib.")
 
-def username_id(username, data_username):
+def username_id(username):
 # menghasilkan id username jika sudah terdaftar, 0 jika belum terdaftar
 # KAMUS LOKAL
 # username_idx : int
 # ALGORITMA FUNGSI
     username_idx = -1
-    for i in range(len(data_username)):
-        if username == data_username[i]:
+    for i in range(len(load.data_user)):
+        if username == load.data_user[i][2]:
             username_idx = i
     
     return username_idx + 1

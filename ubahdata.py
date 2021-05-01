@@ -14,12 +14,3 @@ def split(line):
         arr_data = [data.strip() for data in new_arr]
         data.append(arr_data)
     return data
-
-def savenewdata(data_csv,line):
-    for data in data_csv:
-        for i in range(len(data)):
-            line.write(str(data[i]))
-            if i!=len(data)-1:
-                line.write(";")
-            else:
-                line.write("\n")

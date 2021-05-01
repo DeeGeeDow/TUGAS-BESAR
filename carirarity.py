@@ -1,20 +1,14 @@
-from ubahdata import split
+from load import load
 
 def carirarity():
-    f = open("gadget.csv", "r")
-    lines = f.readlines()
-    f.close()
-    
     req = input("Masukkan rarity: ")
-    
-    data_gadget = split(lines)
 
     state = True
     print("\nHasil pencarian: ")
-    for i in range (len(data_gadget)):
-        if (data_gadget[i][4] == req):
+    for i in range (len(load.data_gadget)):
+        if (load.data_gadget[i][4] == req):
             state = False
-            outputGadget(data_gadget, i)
+            outputGadget(load.data_gadget, i)
     if state:
         print("\nTidak ditemukan gadget dengan rarity", req)
 

@@ -1,4 +1,6 @@
 import printdoraemon as pd
+from load import load
+from save import save
 from register import register
 from login import login
 from caritahun import caritahun
@@ -7,6 +9,14 @@ from ubahjumlah import ubahjumlah
 from hapusitem import hapusitem
 from help import help_admin, help_general, help_user
 
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument("nama_folder", help = "mengakses folder dalam folder_penyimpanan")
+nama_folder = parser.parse_args()
+print("Loading...")
+load(nama_folder)
+pd.print_doraemon()
 
 def runCommand(procedure,isUserPermitted):
 # I.S. pengguna memasukkan command
@@ -23,8 +33,7 @@ def runCommand(procedure,isUserPermitted):
         print("Anda belum login. Gunakan command 'login' untuk login")
 
 role = '' # jika role masih kosong, berarti belum login
-pd.print_doraemon()
-while True:
+while not load.loading_failed:
     print("Ketik 'help' untuk melihat semua perintah")
     command = input(">>> ")
     if command == 'login':
