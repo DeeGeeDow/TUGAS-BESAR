@@ -27,7 +27,7 @@ while True:
             help_admin()
         elif role == "user":
             help_user()
-    elif command == "quit":
+    elif command == "exit":
         print("Terima kasih")
         break
     else:
