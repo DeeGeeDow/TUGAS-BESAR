@@ -7,25 +7,44 @@ from hapusitem import hapusitem
 from help import help_admin
 from help import help_user
 
-login()
-role = login.role
+def runCommand(procedure,isUserPermitted):
+# I.S. pengguna memasukkan command
+# F.S. procedure berjalan jika role-nya memiliki izin untuk menjalankan procedure
+# KAMUS LOKAL
+# procedure : prosedur
+# isUserPerrmitted : boolean (apakah user boleh mengakses atau tidak)
+# ALGORITMA PROSEDUR
+    if role == 'admin' or (role == 'user' and isUserPermitted):
+        procedure()
+    elif role == 'user':
+        print("Hanya admin yang dapat mengakses command ini.")
+    else:
+        print("Anda belum login. Gunakan command 'login' untuk login")
+
+role = '' # jika role masih kosong, berarti belum login
 while True:
     print("Ketik 'help' untuk melihat semua perintah")
     command = input(">>> ")
-    if command == "register" and role == "admin":
-        register()
+    if command == 'login':
+        if role == '':
+            login()
+            role = login.role
+        else:
+            print("Anda sudah login")
+    elif command == "register":
+        runCommand(register,False) 
     elif command == "caritahun":
-        caritahun()
+        runCommand(caritahun,True)
     elif command == "carirarity":
-        carirarity()
-    elif command == "ubahjumlah" and role == "admin":
-        ubahjumlah()
-    elif command == "hapusitem" and role == "admin":
-        hapusitem()
+        runCommand(carirarity,True)
+    elif command == "ubahjumlah":
+        runCommand(ubahjumlah,False)
+    elif command == "hapusitem":
+        runCommand(hapusitem,False)
     elif command == "help":
         if role == "admin":
             help_admin()
-        elif role == "user":
+        else:
             help_user()
     elif command == "quit":
         print("Terima kasih")
