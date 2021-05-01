@@ -52,7 +52,16 @@ def save():
     f_consumable_history.write("id;id_pengambil;id_consumable;tanggal_peminjaman;jumlah\n")
     savenewdata(load.data_consumable_history, consumable_history_path)
 
-    
+    gadget_borrow_history_path = os.path.join(folder_path, "gadget_borrow_history.csv")
+    f_gadget_borrow_history = open(gadget_borrow_history_path, 'w')
+    f_gadget_borrow_history.write("id;id_peminjam;id_gadget;tanggal_peminjaman;jumlah;stok_user\n")
+    savenewdata(load.data_gadget_borrow_history, gadget_borrow_history_path)
+
+    gadget_return_history_path = os.path.join(folder_path, "gadget_return_history.csv")
+    f_gadget_return_history = open(gadget_return_history_path, 'w')
+    f_gadget_return_history.write("id;id_peminjam;id_gadget;tanggal_pengembalian;kembali_berapa\n")
+    savenewdata(load.data_gadget_return_history, gadget_borrow_return_path)
+
 def savenewdata(data_array,csv_path):
 # I.S. data pada data_array akan disimpan di file csv_path
 # F.S. data pada data_darray telah disimpan di file csv_path
