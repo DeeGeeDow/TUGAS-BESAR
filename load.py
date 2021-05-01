@@ -27,13 +27,6 @@ def load(nama_folder):
         print("Folder tidak ditemukan")
         load.loading_failed = True
     else:
-        load.data_user = []
-        load.data_gadget = []
-        load.data_consumable = []
-        load.data_consumable_history = []
-        load.data_gadget_borrow_history = []
-        load.data_gadget_return_history = []
-
         load.data_user = load_file("user.csv")
         load.data_gadget = load_file("gadget.csv")
         load.data_consumable = load_file("consumable.csv")
@@ -82,3 +75,5 @@ def split(line):
         arr_data = [data.strip() for data in new_arr]
         data.append(arr_data)
     return data
+
+

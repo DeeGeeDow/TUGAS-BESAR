@@ -1,5 +1,5 @@
-
 import ubahdata as ud
+from load import load
 
 # Skema pengecekan apakah id gadget atau id consumable bisa dipakai atau belum
 def isID_avail(id, data):
@@ -18,19 +18,10 @@ def isRarityValid(rarity):
 def sortID(data):
     return(data[0])
 
-def tambahitem():
-    # Membaca file gadget dan consumable dan menyimpannya dalam variabel
-    gadget = open("gadget.csv", "r")
-    g = gadget.readlines()
-    gadget.close()
-
-    consumable = open("consumable.csv", "r")
-    c = consumable.readlines()
-    consumable.close()
-
-    # Melakukan parsing csv dengan menggunakan fungsi split buatan 
-    data_gadget = ud.split(g)
-    data_consumable = ud.split(c)
+def tambahitem():    
+    # Membaca data dari fungsi load 
+    data_gadget = load.data_gadget
+    data_consumable = load.data_consumable
     
     # Menerima input ID untuk consumable dan gadget dari user 
     id = input("Masukan ID: ")
@@ -52,7 +43,6 @@ def tambahitem():
                 # Menulis ulang file gadget dengan entry baru
                 gadget = open("gadget.csv", "w")
                 gadget.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
-                ud.savenewdata(data_gadget,gadget)
                 print()
                 print("Item berhasil ditambahkan ke database")
             else: 
@@ -74,7 +64,6 @@ def tambahitem():
                 # Menulis ulang file gadget dengan entry baru
                 consumable = open("consumable.csv", "w")
                 consumable.write("id;nama;deskripsi;jumlah;rarity\n")
-                ud.savenewdata(data_consumable,consumable)
                 print()
                 print("Item berhasil ditambahkan ke database")
             else: 
