@@ -6,6 +6,7 @@ from ubahjumlah import ubahjumlah
 from hapusitem import hapusitem
 from help import help_admin
 from help import help_user
+from help import help_general
 
 def runCommand(procedure,isUserPermitted):
 # I.S. pengguna memasukkan command
@@ -44,8 +45,10 @@ while True:
     elif command == "help":
         if role == "admin":
             help_admin()
-        else:
+        elif role == 'user':
             help_user()
+        else:
+            help_general()
     elif command == "exit":
         print("Terima kasih")
         break
