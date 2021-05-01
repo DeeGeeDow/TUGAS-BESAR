@@ -74,5 +74,3 @@ def sort_tanggal(raw):
                         raw[j]= raw[j + 1]
                         raw[j + 1]= temp
     return(raw)
-
-riwayatpinjam()
