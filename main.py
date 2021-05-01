@@ -14,10 +14,9 @@ import argparse
 
 parser = argparse.ArgumentParser()
 parser.add_argument("nama_folder", help = "mengakses folder dalam folder_penyimpanan")
-nama_folder = parser.parse_args()
+args = parser.parse_args()
 print("Loading...")
-load(nama_folder)
-pd.print_doraemon()
+load(args.nama_folder)
 
 def runCommand(procedure,isUserPermitted):
 # I.S. pengguna memasukkan command
@@ -34,6 +33,8 @@ def runCommand(procedure,isUserPermitted):
         print("Anda belum login. Gunakan command 'login' untuk login")
 
 role = '' # jika role masih kosong, berarti belum login
+if not load.loading_failed:
+    pd.print_doraemon()
 while not load.loading_failed:
     print("Ketik 'help' untuk melihat semua perintah")
     command = input(">>> ")

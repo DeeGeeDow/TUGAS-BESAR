@@ -73,7 +73,7 @@ def tambahitem():
                 data_consumable.sort(key=sortID)
                 # Menulis ulang file gadget dengan entry baru
                 consumable = open("consumable.csv", "w")
-                consumable.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
+                consumable.write("id;nama;deskripsi;jumlah;rarity\n")
                 ud.savenewdata(data_consumable,consumable)
                 print()
                 print("Item berhasil ditambahkan ke database")
