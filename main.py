@@ -63,6 +63,8 @@ while not load.loading_failed:
             help_user()
         else:
             help_general()
+    elif command == "save":
+        runCommand(save,True)
     elif command == "exit":
         print("Terima kasih")
         break

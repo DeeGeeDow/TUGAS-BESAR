@@ -35,41 +35,40 @@ def save():
     user_path = os.path.join(folder_path,"user.csv")
     f_user = open(user_path,'w')
     f_user.write("id;nama;username;password;alamat;role\n")
-    savenewdata(load.data_user, user_path)
+    savenewdata(load.data_user, f_user)
 
     gadget_path = os.path.join(folder_path,"gadget.csv")
     f_gadget = open(gadget_path,'w')
     f_gadget.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
-    savenewdata(load.data_gadget, gadget_path)
+    savenewdata(load.data_gadget, f_gadget)
 
     consumable_path = os.path.join(folder_path, "consumable.csv")
     f_consumable = open(consumable_path, 'w')
     f_consumable.write("id;nama;deskripsi;jumlah;rarity\n")
-    savenewdata(load.data_consumable, consumable_path)
+    savenewdata(load.data_consumable, f_consumable)
 
     consumable_history_path = os.path.join(folder_path, "consumable_history.csv")
     f_consumable_history = open(consumable_history_path, 'w')
     f_consumable_history.write("id;id_pengambil;id_consumable;tanggal_peminjaman;jumlah\n")
-    savenewdata(load.data_consumable_history, consumable_history_path)
+    savenewdata(load.data_consumable_history, f_consumable_history)
 
     gadget_borrow_history_path = os.path.join(folder_path, "gadget_borrow_history.csv")
     f_gadget_borrow_history = open(gadget_borrow_history_path, 'w')
     f_gadget_borrow_history.write("id;id_peminjam;id_gadget;tanggal_peminjaman;jumlah;stok_user\n")
-    savenewdata(load.data_gadget_borrow_history, gadget_borrow_history_path)
+    savenewdata(load.data_gadget_borrow_history, f_gadget_borrow_history)
 
     gadget_return_history_path = os.path.join(folder_path, "gadget_return_history.csv")
     f_gadget_return_history = open(gadget_return_history_path, 'w')
     f_gadget_return_history.write("id;id_peminjam;id_gadget;tanggal_pengembalian;kembali_berapa\n")
-    savenewdata(load.data_gadget_return_history, gadget_borrow_return_path)
+    savenewdata(load.data_gadget_return_history, f_gadget_return_history)
 
-def savenewdata(data_array,csv_path):
+def savenewdata(data_array, line):
 # I.S. data pada data_array akan disimpan di file csv_path
 # F.S. data pada data_darray telah disimpan di file csv_path
 # KAMUS
 # line : seqfile of csv_path
 
 # ALGORITMA PROSEDUR
-    line = open(csv_path,"w")
     for data in data_array:
         for i in range(len(data)):
             line.write(str(data[i]))

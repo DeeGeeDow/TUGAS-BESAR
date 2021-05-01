@@ -26,7 +26,7 @@ def register():
     password = input("Masukkan password : ")
     alamat = input("Masukkan alamat : ")
 
-    new_user = [nama,username,password,alamat]
+    new_user = [len(load.data_user)+1,nama,username,password,alamat]
     load.data_user.append(new_user)
 
     print(f"User {username} telah berhasil register ke dalam Kantong Ajaib.")

@@ -34,21 +34,19 @@ def load(nama_folder):
         load.data_gadget_borrow_history = []
         load.data_gadget_return_history = []
 
-        load_file("user.csv", load.data_user)
-        load_file("gadget.csv", load.data_gadget)
-        load_file("consumable.csv", load.data_consumable)
-        load_file("consumable_history.csv", load.data_consumable)
-        load_file("gadget_borrow_history.csv", load.data_gadget_borrow_history)
-        load_file("gadget_return_history.csv", load.data_gadget_return_history)
+        load.data_user = load_file("user.csv")
+        load.data_gadget = load_file("gadget.csv")
+        load.data_consumable = load_file("consumable.csv")
+        load.data_consumable_history = load_file("consumable_history.csv")
+        load.data_gadget_borrow_history = load_file("gadget_borrow_history.csv")
+        load.data_gadget_return_history = load_file("gadget_return_history.csv")
 
-def load_file(file_csv,data_arr):
-# I.S. file_csv belum diload
-# F.S. file_csv sudah diload ke data_arr jika file_csv ada
+def load_file(file_csv):
+# menghasilkan array data dalam file csv
 # KAMUS LOKAL
-# isFileFound : bool = true jika file_csv ada
 # f : seqfile of file_csv
-# ALGORITMA PROSEDUR
-    isFileFound = False
+# ALGORITMA FUNGSI
+    data_arr = []
     for file in load.files_name:
         if file == file_csv:
             file_path = os.path.join(load.folder_path, file_csv)
@@ -56,10 +54,11 @@ def load_file(file_csv,data_arr):
             line = f.readlines()
             data_arr = split(line)
             print(file_csv + " loaded")
-            isFileFound = True
-    if not isFileFound:
-        print("Failed to load " + file_csv)
-        load.loading_failed = True
+            return data_arr
+    
+    print("Failed to load " + file_csv)
+    load.loading_failed = True
+    return data_arr
 
 def split(line):
 # mengembalikan data dalam line yang awalnya array of string dengan ';' sebagai pembatas
