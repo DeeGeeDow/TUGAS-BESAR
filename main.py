@@ -7,6 +7,7 @@ from caritahun import caritahun
 from carirarity import carirarity
 from ubahjumlah import ubahjumlah
 from hapusitem import hapusitem
+from tambahitem import tambahitem
 from help import help_admin, help_general, help_user
 
 import argparse
@@ -52,6 +53,8 @@ while not load.loading_failed:
         runCommand(ubahjumlah,False)
     elif command == "hapusitem":
         runCommand(hapusitem,False)
+    elif command == "tambahitem":
+        runCommand(tambahitem,False)
     elif command == "help":
         if role == "admin":
             help_admin()
