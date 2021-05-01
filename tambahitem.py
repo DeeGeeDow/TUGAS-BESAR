@@ -14,6 +14,9 @@ def isRarityValid(rarity):
     else: 
         return False
 
+def sortID(data):
+    return(data[0])
+
 def tambahitem():
     # Membaca file gadget dan consumable dan menyimpannya dalam variabel
     gadget = open("gadget.csv", "r")
@@ -27,7 +30,7 @@ def tambahitem():
     # Melakukan parsing csv dengan menggunakan fungsi split buatan 
     data_gadget = ud.split(g)
     data_consumable = ud.split(c)
-
+    
     # Menerima input ID untuk consumable dan gadget dari user 
     id = input("Masukan ID: ")
     id = id.upper()
@@ -44,6 +47,7 @@ def tambahitem():
                 G_year = int(input("Masukan tahun ditemukan: "))
                 new_G = [id, G_name, G_desc, G_quant, G_rarity, G_year]
                 data_gadget.append(new_G)
+                data_gadget.sort(key=sortID)
                 # Menulis ulang file gadget dengan entry baru
                 gadget = open("gadget.csv", "w")
                 gadget.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
@@ -65,6 +69,7 @@ def tambahitem():
             if isRarityValid(C_rarity):
                 new_C = [id, C_name, C_desc, C_quant, C_rarity]
                 data_consumable.append(new_C)
+                data_consumable.sort(key=sortID)
                 # Menulis ulang file gadget dengan entry baru
                 consumable = open("consumable.csv", "w")
                 consumable.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
