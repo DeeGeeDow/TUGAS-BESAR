@@ -1,12 +1,12 @@
+import printdoraemon as pd
 from register import register
 from login import login
 from caritahun import caritahun
 from carirarity import carirarity
 from ubahjumlah import ubahjumlah
 from hapusitem import hapusitem
-from help import help_admin
-from help import help_user
-from help import help_general
+from help import help_admin, help_general, help_user
+
 
 def runCommand(procedure,isUserPermitted):
 # I.S. pengguna memasukkan command
@@ -23,6 +23,7 @@ def runCommand(procedure,isUserPermitted):
         print("Anda belum login. Gunakan command 'login' untuk login")
 
 role = '' # jika role masih kosong, berarti belum login
+pd.print_doraemon()
 while True:
     print("Ketik 'help' untuk melihat semua perintah")
     command = input(">>> ")

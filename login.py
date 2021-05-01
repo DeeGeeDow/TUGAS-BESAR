@@ -43,7 +43,6 @@ def login():
         data_password.append(split_value[3])
         data_role.append(split_value[-1].replace('\n',''))
 
-    pd.print_doraemon()
     username = input("Masukkan username : ")
 
     while username_id(username,data_username) == 0:

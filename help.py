@@ -33,5 +33,5 @@ def help_user():
 def help_general():
     # Pengguna menggunakan help tanpa login
     print("============ HELP ============")
-    print(F02,F14,F17, sep="\n")
+    print(F02,F17, sep="\n")
     print()
