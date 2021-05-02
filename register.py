@@ -19,9 +19,8 @@ def register():
     nama = input("Masukkan nama : ")
     username = input("Masukkan username : ")
     
-    while not isUsernameValid(username):
-        print("Username sudah digunakan, silakan masukan username lain.")
-        username = input("Masukkan username : ")
+    if not isUsernameValid(username):
+        print("Username sudah digunakan")
     
     password = input("Masukkan password : ")
     alamat = input("Masukkan alamat : ")
