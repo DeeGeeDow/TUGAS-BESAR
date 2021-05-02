@@ -1,10 +1,8 @@
 from carirarity import outputGadget
+from load import load
 
 def caritahun():
-    f =  open("gadget.csv", "r")
-    gadget = f.readlines()
-    f.close()
-
+    gadget = load.data_gadget
     print()
     tahun = int(input("Masukkan tahun: "))
     kategori = input("Masukkan kategori: ")
