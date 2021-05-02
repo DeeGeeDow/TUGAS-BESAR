@@ -19,6 +19,8 @@ def minta():
 
 # ALGORITMA PROSEDUR
     # tanggal hari ini
+    for data in load.data_consumable:
+        data[3] = int(data[3])
     waktu = datetime.date.today()
     tanggal = waktu.strftime("%d/%m/%Y")
 

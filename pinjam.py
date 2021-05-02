@@ -7,9 +7,9 @@ import datetime
 
 waktu = datetime.date.today()
 tanggal = waktu.strftime("%d/%m/%Y")
-active_user_id = login.id_user
 
 def pinjam():
+    active_user_id = login.id_user
     for data in load.data_gadget:
         data[3] = int(data[3])
 
