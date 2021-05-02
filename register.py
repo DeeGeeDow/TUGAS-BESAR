@@ -21,11 +21,11 @@ def register():
     
     if not isUsernameValid(username):
         print("Username sudah digunakan")
-    
+        return 
     password = input("Masukkan password : ")
     alamat = input("Masukkan alamat : ")
-
-    new_user = [len(load.data_user)+1,nama,username,password,alamat]
+    role = "user"
+    new_user = [len(load.data_user)+1,nama,username,password,alamat,role]
     load.data_user.append(new_user)
 
     print(f"User {username} telah berhasil register ke dalam Kantong Ajaib.")
