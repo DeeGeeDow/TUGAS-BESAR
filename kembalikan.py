@@ -23,7 +23,7 @@ def kembalikan():
                 if (active_user_id == load.data_gadget_borrow_history[i][1]):
                     count += 1
                     gadget_idx = data_id_gadget.index(load.data_gadget_borrow_history[i][2])
-                    print(f"{count}. ({load.data_gadget_borrow_history[i][2]}) {load.data_gadget[gadget_idx][1]} (x{load.data_gadget_borrow_history[gadget_idx][-1]})")  
+                    print(f"{count}. ({load.data_gadget_borrow_history[i][2]}) {load.data_gadget[gadget_idx][1]} (x{load.data_gadget_borrow_history[i][-1]})")  
                     
             # Meminta input barang apa yang ingin dikembalikan        
             id = input("Masukkan ID gadget yang ingin dikembalikan : ")

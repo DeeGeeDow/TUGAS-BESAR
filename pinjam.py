@@ -34,10 +34,11 @@ def pinjam():
             if (jumlah <= load.data_gadget[indeks][3]):
                 load.data_gadget[indeks][3] = load.data_gadget[indeks][3] - jumlah
                 print("Item", load.data_gadget[indeks][1], "sebanyak", str(jumlah),"telah dipinjam." )
+
+                stok_user = jumlah
+                load.data_gadget_borrow_history.append([len(load.data_gadget_borrow_history)+1, active_user_id, id, tanggal, jumlah, stok_user])
             else:
                 print("Jumlah peminjaman terlalu banyak")
-            stok_user = jumlah
 
-            load.data_gadget_borrow_history.append([len(load.data_gadget_borrow_history)+1, active_user_id, id, tanggal, jumlah, stok_user])
     else:
         print("Gadget tidak ditemukan.")
