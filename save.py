@@ -49,7 +49,7 @@ def save():
 
     consumable_history_path = os.path.join(folder_path, "consumable_history.csv")
     f_consumable_history = open(consumable_history_path, 'w')
-    f_consumable_history.write("id;id_pengambil;id_consumable;tanggal_peminjaman;jumlah\n")
+    f_consumable_history.write("id;id_pengambil;id_consumable;tanggal_pengambilan;jumlah\n")
     savenewdata(load.data_consumable_history, f_consumable_history)
 
     gadget_borrow_history_path = os.path.join(folder_path, "gadget_borrow_history.csv")
@@ -59,7 +59,7 @@ def save():
 
     gadget_return_history_path = os.path.join(folder_path, "gadget_return_history.csv")
     f_gadget_return_history = open(gadget_return_history_path, 'w')
-    f_gadget_return_history.write("id;id_peminjam;id_gadget;tanggal_pengembalian;kembali_berapa\n")
+    f_gadget_return_history.write("id;id_peminjaman;tanggal_pengembalian;kembali_berapa\n")
     savenewdata(load.data_gadget_return_history, f_gadget_return_history)
 
 def savenewdata(data_array, line):

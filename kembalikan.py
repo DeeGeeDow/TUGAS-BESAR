@@ -1,25 +1,29 @@
 from load import load
-
+from login import login
 import math
 import time 
 import datetime
 
 waktu = datetime.date.today()
 tanggal = waktu.strftime("%d/%m/%Y")
-active_user = "Admin"
 
 
 def kembalikan():
+    active_user_id = login.id_user
     for data in load.data_gadget:
         data[3] = int(data[3])
 
     # Mengecek apakah user pernah meminjam barang atau tidak
     for i in range (len(load.data_gadget_borrow_history)):
-        if (active_user in load.data_gadget_borrow_history[i][1]):
+        if (active_user_id in load.data_gadget_borrow_history[i][1]):
             print("Catatan peminjaman gadget Anda")
-            for i in range (len(load.ata_gadget_borrow_history)):
-                if (active_user == load.data_gadget_borrow_history[i][1]):
-                    print(load.data_gadget_borrow_history[i][0:4])  
+            count = 0
+            data_id_gadget = [data[0] for data in load.data_gadget]
+            for i in range (len(load.data_gadget_borrow_history)):
+                if (active_user_id == load.data_gadget_borrow_history[i][1]):
+                    count += 1
+                    gadget_idx = data_id_gadget.index(load.data_gadget_borrow_history[i][2])
+                    print(f"{count}. ({load.data_gadget_borrow_history[i][2]}) {load.data_gadget[gadget_idx][1]} (x{load.data_gadget_borrow_history[gadget_idx][-1]})")  
                     
             # Meminta input barang apa yang ingin dikembalikan        
             id = input("Masukkan ID gadget yang ingin dikembalikan : ")
@@ -31,10 +35,10 @@ def kembalikan():
                     indeks = i
                     break
                 
-            # Mencari indeks untuk mengubah jumlah stok_user di gadget_borrow_history_matrix_history.csv    
+            # Mencari indeks untuk mengubah jumlah stok_user di gadget_borrow_history.csv    
             idx = -1          
             for i in range (len(load.data_gadget_borrow_history)):
-                if (active_user == load.data_gadget_borrow_history[i][1] and id == load.data_gadget_borrow_history[i][2]):
+                if (active_user_id == load.data_gadget_borrow_history[i][1] and id == load.data_gadget_borrow_history[i][2]):
                     idx = i
                     break
             
@@ -53,7 +57,7 @@ def kembalikan():
                         print("Gadget", load.data_gadget[indeks][1], "sebanyak", kembali_berapa, "telah dikembalikan.")
                         load.data_gadget_borrow_history[idx][5] = stok_user - kembali_berapa
 
-                        load.data_gadget_return_history.append([len(load.data_gadget_return_history)+1,active_user,id,tanggal,kembali_berapa])
+                        load.data_gadget_return_history.append([len(load.data_gadget_return_history)+1,load.data_gadget_borrow_history[idx][0],tanggal,kembali_berapa])
                         
                     elif (kembali_berapa >= stok_user):
                         print("Input berlebih.")

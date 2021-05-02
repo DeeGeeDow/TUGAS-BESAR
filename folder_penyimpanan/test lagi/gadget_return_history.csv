@@ -1,1 +1,2 @@
-id;id_peminjam;id_gadget;tanggal_pengembalian;kembali_berapa
+id;id_peminjaman;tanggal_pengembalian;kembali_berapa
+1;1;02/05/2021;2

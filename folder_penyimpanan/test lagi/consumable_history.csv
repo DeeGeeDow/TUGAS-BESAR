@@ -1,3 +1,1 @@
-id;id_pengambil;id_consumable;tanggal_peminjaman;jumlah
-1;2;C2;02/05/2021;3
-2;2;C2;02/05/2021;3
+id;id_pengambil;id_consumable;tanggal_pengambilan;jumlah

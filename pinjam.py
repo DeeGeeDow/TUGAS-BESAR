@@ -32,7 +32,7 @@ def pinjam():
             jumlah = int(input("Jumlah peminjaman : "))
             # Pengambilan stok barang setelah tahu indeks gadget yang diinginkan oleh user                    
             if (jumlah <= load.data_gadget[indeks][3]):
-                data_gadget[indeks][3] = load.data_gadget[indeks][3] - jumlah
+                load.data_gadget[indeks][3] = load.data_gadget[indeks][3] - jumlah
                 print("Item", load.data_gadget[indeks][1], "sebanyak", str(jumlah),"telah dipinjam." )
             else:
                 print("Jumlah peminjaman terlalu banyak")
