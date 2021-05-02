@@ -1,83 +1,20 @@
+from load import load
 def riwayatpinjam():
-    f = open("gadget_borrow_history.csv", "r")
-    lines = f.readlines()
-    f.close()
-
-    f =  open("gadget.csv", "r")
-    gadget = f.readlines()
-    f.close()
-
-    f =  open("user.csv", "r")
-    user = f.readlines()
-    f.close()
-
-    id_user = []
-    nama = []
-    for i in range(1, len(user)):
-        new_file = []
-        kata = ''
-        for j in (user[i]):
-            if (j == ";"):
-                new_file.append(kata)
-                kata = ''
-            else:
-                kata += j
-        if kata:
-            new_file.append(kata)
-        array = [data.strip() for data in new_file]
-        nama.append(array[1])
-        id_user.append(array[0])
-
-    id_gadget = []
-    nama_gadget = []
-    for i in range(1, len(gadget)):
-        new_file = []
-        kata = ''
-        for j in (gadget[i]):
-            if (j == ";"):
-                new_file.append(kata)
-                kata = ''
-            else:
-                kata += j
-        if kata:
-            new_file.append(kata)
-        array = [data.strip() for data in new_file]
-        nama_gadget.append(array[1])
-        id_gadget.append(array[0])
-
-    
-    data = []
-    tanggal = []
-    for i in range(1, len(lines)):
-        new_file = []
-        kata = ''
-        for j in (lines[i]):
-            if (j == ";"):
-                new_file.append(kata)
-                kata = ''
-            else:
-                kata += j
-        if kata:
-            new_file.append(kata)
-        array = [data.strip() for data in new_file]
-        data.append(array)
-        tanggal.append(array[3])
+    id_user = [data[0] for data in load.data_user]
+    id_gadget = [data[0] for data in load.data_gadget]
+    tanggal = [data[3] for data in load.data_gadget_borrow_history]
 
     tanggal_baru = sort_tanggal(tanggal)
-
-    tanggal_lama = []
-    for i in data:
-        tanggal_lama.append(i[3])
-
-    entry = tanggal_baru[0:6]
     
+    entry = tanggal_baru[0:6]
+
     for item in entry:
-        ind = tanggal_lama.index(item)
-        print("ID Peminjaman        :", data[ind][0])
-        print("Nama Pengambil       :", nama[id_user.index(data[ind][1])])
-        print("Nama Gadget          :", nama_gadget[id_gadget.index(data[ind][2])])
-        print("Tanggal Peminjaman   :", data[ind][3])
-        print("Jumlah               :", data[ind][4])
+        ind = tanggal.index(item)
+        print("ID Peminjaman        :", load.data_gadget_borrow_history[ind][0])
+        print("Nama Pengambil       :", load.data_user[id_user.index(load.data_gadget_borrow_history[ind][1])][1])
+        print("Nama Gadget          :", load.data_gadget[id_gadget.index(load.data_gadget_borrow_history[ind][2])][1])
+        print("Tanggal Peminjaman   :", load.data_gadget_borrow_history[ind][3])
+        print("Jumlah               :", load.data_gadget_borrow_history[ind][4])
         print()
 
     req = input("Apakah Anda ingin melihat 5 riwayat lainnya?(Y/N) ")
@@ -85,12 +22,12 @@ def riwayatpinjam():
     if (req == 'Y' or 'y'):
         entry = tanggal_baru[6:11]
         for item in entry:
-            ind = tanggal_lama.index(item)
-            print("ID Peminjaman        :", data[ind][0])
-            print("Nama Pengambil       :", nama[id_user.index(data[ind][1])])
-            print("Nama Gadget          :", nama_gadget[id_gadget.index(data[ind][2])])
-            print("Tanggal Peminjaman   :", data[ind][3])
-            print("Jumlah               :", data[ind][4])
+            ind = tanggal.index(item)
+            print("ID Peminjaman        :", load.data_gadget_borrow_history[ind][0])
+            print("Nama Pengambil       :", load.data_user[id_user.index(load.data_gadget_borrow_history[ind][1])][1])
+            print("Nama Gadget          :", load.data_gadget[id_gadget.index(load.data_gadget_borrow_history[ind][2])][1])
+            print("Tanggal Peminjaman   :", load.data_gadget_borrow_history[ind][3])
+            print("Jumlah               :", load.data_gadget_borrow_history[ind][4])
             print()
     else:
         print()

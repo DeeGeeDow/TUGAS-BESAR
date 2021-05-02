@@ -1,4 +1,5 @@
 from load import load
+from login import login
 
 import math
 import time 
@@ -6,7 +7,7 @@ import datetime
 
 waktu = datetime.date.today()
 tanggal = waktu.strftime("%d/%m/%Y")
-active_user = "Admin"
+active_user_id = login.id_user
 
 def pinjam():
     for data in load.data_gadget:
@@ -22,7 +23,7 @@ def pinjam():
         
     if (indeks != -1):
         for i in range (len(load.data_gadget_borrow_history)):
-            if (active_user == load.data_gadget_borrow_history[i][1] and id == load.data_gadget_borrow_history[i][2]):
+            if (active_user_id == load.data_gadget_borrow_history[i][1] and id == load.data_gadget_borrow_history[i][2]):
                 print("Anda sudah pernah meminjam gadget ini")
                 break
             
@@ -37,6 +38,6 @@ def pinjam():
                 print("Jumlah peminjaman terlalu banyak")
             stok_user = jumlah
 
-            load.data_gadget_borrow_history.append([len(load.data_gadget_borrow_history)+1, active_user, id, tanggal, jumlah, stok_user])
+            load.data_gadget_borrow_history.append([len(load.data_gadget_borrow_history)+1, active_user_id, id, tanggal, jumlah, stok_user])
     else:
         print("Gadget tidak ditemukan.")

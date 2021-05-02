@@ -29,6 +29,7 @@ def login():
         login()
     else:
         login.role = load.data_user[username_id(username) - 1][-1]
+        login.id_user = load.data_user[username_id(username) - 1][0]
         print(f"Halo {username}! Selamat datang di Kantong Ajaib.")
 
 def username_id(username):

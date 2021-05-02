@@ -8,6 +8,9 @@ from carirarity import carirarity
 from ubahjumlah import ubahjumlah
 from hapusitem import hapusitem
 from tambahitem import tambahitem
+from riwayatambil import riwayatambil
+from riwayatpinjam import riwayatpinjam
+from riwayatkembali import riwayatkembali
 from help import help_admin, help_general, help_user
 
 import argparse
@@ -56,6 +59,12 @@ while not load.loading_failed:
         runCommand(hapusitem,False)
     elif command == "tambahitem":
         runCommand(tambahitem,False)
+    elif command == "riwayatambil":
+        runCommand(riwayatambil,False)
+    elif command == "riwayatkembali":
+        runCommand(riwayatkembali,False)
+    elif command == "riwayatpinjam":
+        runCommand(riwayatpinjam,False)
     elif command == "help":
         if role == "admin":
             help_admin()
