@@ -11,7 +11,7 @@ def riwayatkembali():
     
     for item in entry:
         ind = tanggal.index(item)
-        a = id_peminjaman.index(load.data_gadget_return_history[ind][1]) #flag
+        a = id_peminjaman.index(load.data_gadget_return_history[ind][1]) 
         print("ID Pengembalian      :", load.data_gadget_return_history[ind][0])
         print("Nama Pengambil       :", load.data_user[id_user.index(load.data_gadget_return_history[a][1])][1])
         print("Nama Gadget          :", load.data_gadget[id_gadget.index(load.data_gadget_return_history[a][2])][1])

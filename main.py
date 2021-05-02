@@ -3,6 +3,9 @@ from load import load
 from save import save
 from register import register
 from login import login
+from pinjam import pinjam
+from kembalikan import kembalikan
+from minta import minta
 from caritahun import caritahun
 from carirarity import carirarity
 from ubahjumlah import ubahjumlah
@@ -21,17 +24,19 @@ args = parser.parse_args()
 print("Loading...")
 load(args.nama_folder)
 
-def runCommand(procedure,isUserPermitted):
+def runCommand(procedure,isAdminPermitted, isUserPermitted):
 # I.S. pengguna memasukkan command
 # F.S. procedure berjalan jika role-nya memiliki izin untuk menjalankan procedure
 # KAMUS LOKAL
 # procedure : prosedur
 # isUserPerrmitted : boolean (apakah user boleh mengakses atau tidak)
 # ALGORITMA PROSEDUR
-    if role == 'admin' or (role == 'user' and isUserPermitted):
+    if (role == 'admin' and isAdminPermitted) or (role == 'user' and isUserPermitted):
         procedure()
     elif role == 'user':
         print("Hanya admin yang dapat mengakses command ini.")
+    elif role == 'admin':
+        print("Hanya user yang dapat mengakses command ini.")
     else:
         print("Anda belum login. Gunakan command 'login' untuk login")
 
@@ -48,23 +53,29 @@ while not load.loading_failed:
         else:
             print("Anda sudah login")
     elif command == "register":
-        runCommand(register,False) 
+        runCommand(register,True,False) 
     elif command == "caritahun":
-        runCommand(caritahun,True)
+        runCommand(caritahun,True,True)
     elif command == "carirarity":
-        runCommand(carirarity,True)
+        runCommand(carirarity,True,True)
     elif command == "ubahjumlah":
-        runCommand(ubahjumlah,False)
+        runCommand(ubahjumlah,True,False)
     elif command == "hapusitem":
-        runCommand(hapusitem,False)
+        runCommand(hapusitem,True,False)
     elif command == "tambahitem":
-        runCommand(tambahitem,False)
+        runCommand(tambahitem,True,False)
+    elif command == "pinjam":
+        runCommand(pinjam,False,True)
+    elif command == "minta":
+        runCommand(minta,False,True)
+    elif command == "kembalikan":
+        runCommand(kembalikan,False,True)
     elif command == "riwayatambil":
-        runCommand(riwayatambil,False)
+        runCommand(riwayatambil,True,False)
     elif command == "riwayatkembali":
-        runCommand(riwayatkembali,False)
+        runCommand(riwayatkembali,True,False)
     elif command == "riwayatpinjam":
-        runCommand(riwayatpinjam,False)
+        runCommand(riwayatpinjam,True,False)
     elif command == "help":
         if role == "admin":
             help_admin()
@@ -73,7 +84,7 @@ while not load.loading_failed:
         else:
             help_general()
     elif command == "save":
-        runCommand(save,True)
+        runCommand(save,True,True)
     elif command == "exit":
         print("Terima kasih")
         break
