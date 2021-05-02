@@ -86,8 +86,14 @@ while not load.loading_failed:
     elif command == "save":
         runCommand(save,True,True)
     elif command == "exit":
-        print("Terima kasih")
-        break
+        save_before_exit = input("Apakah anda ingin menyimpan file sebelum keluar? (y/n) ")
+        if save_before_exit == 'y' or save_before_exit == 'Y':
+            runCommand(save,True,True)
+        elif save_before_exit == 'n' or save_before_exit == 'N':
+            print("Terima kasih")
+            break
+        else:
+            print("Invalid input!")
     else:
         print("Invalid Command")
     
