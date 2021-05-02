@@ -90,7 +90,7 @@ while not load.loading_failed:
         if save_before_exit == 'y' or save_before_exit == 'Y':
             runCommand(save,True,True)
         elif save_before_exit == 'n' or save_before_exit == 'N':
-            print("Terima kasih")
+            pd.exit_kantong_ajaib()
             break
         else:
             print("Invalid input!")

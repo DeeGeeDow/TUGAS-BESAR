@@ -40,7 +40,7 @@ def minta():
                 load.data_consumable_history.append([len(load.data_consumable_history)+1, active_user_id, id_item, tanggal, jumlah])
                 print(f"Item {load.data_consumable[index_consumable][1]} (x{jumlah}) berhasil diambil! Stok sekarang : {load.data_consumable[index_consumable][3]}")
             else:
-                print("Permintaan terlalu banyak! Stok {load.data_consumable[index_consumable][1]} hanya {load.data_consumable[index_consumable][3]}. ")
+                print(f"Permintaan terlalu banyak! Stok {load.data_consumable[index_consumable][1]} hanya {load.data_consumable[index_consumable][3]}. ")
         else:
             print("Jumlah harus bilangan bulat positif!")
     else:
