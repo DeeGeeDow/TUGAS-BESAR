@@ -40,9 +40,6 @@ def tambahitem():
                 new_G = [id, G_name, G_desc, G_quant, G_rarity, G_year]
                 data_gadget.append(new_G)
                 data_gadget.sort(key=sortID)
-                # Menulis ulang file gadget dengan entry baru
-                gadget = open("gadget.csv", "w")
-                gadget.write("id;nama;deskripsi;jumlah;rarity;tahun_ditemukan\n")
                 print()
                 print("Item berhasil ditambahkan ke database")
             else: 
@@ -61,9 +58,6 @@ def tambahitem():
                 new_C = [id, C_name, C_desc, C_quant, C_rarity]
                 data_consumable.append(new_C)
                 data_consumable.sort(key=sortID)
-                # Menulis ulang file gadget dengan entry baru
-                consumable = open("consumable.csv", "w")
-                consumable.write("id;nama;deskripsi;jumlah;rarity\n")
                 print()
                 print("Item berhasil ditambahkan ke database")
             else: 

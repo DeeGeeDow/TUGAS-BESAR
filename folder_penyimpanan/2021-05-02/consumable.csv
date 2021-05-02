@@ -1,6 +1,7 @@
 id;nama;deskripsi;jumlah;rarity
-C2;Whiskes;Makanan kucing;64;B
-C3;Nasi Goreng Spesial;Makanan spesial;5;A
+C1;Promag;Solusi tanggal tua mahasiswa;10;A
+C2;Whiskes;Makanan kucing;60;B
+C3;Nasi Goreng Spesial;Makanan spesial;0;A
 C4;Biskuit Kong Guen;Makanan langka;2;S
 C5;Rengginang;Makanan pengganti biskuit kong guen;43;C
 C6;Obat Kuat;Untuk menambah kekuatan;10;S
